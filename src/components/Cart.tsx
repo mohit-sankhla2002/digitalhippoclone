@@ -14,9 +14,10 @@ import { ShoppingCartIcon } from "lucide-react";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
+import Image from "next/image";
 
 const Cart: FC = () => {
-  const itemCount = 1;
+  const itemCount = 0;
   const fee = 1;
   return (
     <Sheet>
@@ -83,7 +84,29 @@ const Cart: FC = () => {
             </div>
           </>
         ) : (
-          <div></div>
+          <div className="flex h-full flex-col items-center justify-center space-y-1">
+            <div className="relative mb-4 h-60 w-60 text-muted-foreground">
+              <Image
+                aria-hidden="true"
+                src="/hippo-empty-cart.png"
+                alt="hippo"
+                fill
+              />
+            </div>
+            <h3 className="text-xl font-semibold">Your Cart is Empty</h3>
+            <SheetTrigger asChild>
+              <Link
+                href="/products"
+                className={buttonVariants({
+                  variant: "link",
+                  size: "sm",
+                  className: "text-sm text-muted-foreground",
+                })}
+              >
+                Add Items to Your Cart To Checkout
+              </Link>
+            </SheetTrigger>
+          </div>
         )}
       </SheetContent>
     </Sheet>
