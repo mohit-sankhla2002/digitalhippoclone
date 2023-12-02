@@ -1,3 +1,5 @@
+// FIXME: Default import alias is not working and I don't know the exact reason for it
+
 import express from 'express';
 import { getPayloadClient } from './get-payload';
 import { nextApp, nextHandler } from './next-utils';
