@@ -31,19 +31,19 @@ const Page = () => {
     onSuccess: () => {
         toast.success("Sign In Successfully!");
 
-        router.refresh();
-
+        
         if (origin) {
-            router.push(`/${origin}`);
-            return;
+          router.push(`/${origin}`);
+          return;
         }
-
+        
         if (isSeller) {
-            router.push("/sell");
-            return;
+          router.push("/sell");
+          return;
         }
-
+        
         router.push("/");
+        router.refresh();
     },
 
     onError: (err) => {

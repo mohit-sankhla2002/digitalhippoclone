@@ -8,9 +8,12 @@ dotenv.config({
 });
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.freesmtpservers.com',
-    port: 25
-})
+    service: 'Gmail',
+    auth: {
+      user: 'mohittest64@gmail.com',
+      pass: "wboxcxguycayxmgm",
+    },
+  })
 
 let cached = (global as any).payload;
 
@@ -18,7 +21,7 @@ if (!cached) {
     cached = {
         email: {
             transport: transporter, 
-            fromAddress: "mohitsankhlapersonal02@gmail.com",
+            fromAddress: "mohittest64@gmail.com",
             fromName: "mohitsankhla"
         },
         client: null, 

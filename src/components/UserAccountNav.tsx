@@ -5,7 +5,9 @@ import { Button } from './ui/button';
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { DropdownMenu } from "./ui/dropdown-menu";
 import Link from 'next/link';
+import { useAuth } from '@/hooks/use-auth';
 const UserAccountNav = ({ user }: { user: User }) => {
+    const { signOut } = useAuth();
     return <DropdownMenu>
         <DropdownMenuTrigger asChild className='overflow-visible'>
             <Button variant='ghost' size="sm" className='relative'>My Account</Button>
@@ -21,7 +23,7 @@ const UserAccountNav = ({ user }: { user: User }) => {
             <DropdownMenuItem asChild>
                 <Link href="/sell">Seller Dashboard</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className='cursor-pointer'>
+            <DropdownMenuItem className='cursor-pointer' onClick={signOut} >
                 Log Out
             </DropdownMenuItem>
         </DropdownMenuContent>
