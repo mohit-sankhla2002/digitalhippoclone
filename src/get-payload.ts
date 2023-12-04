@@ -2,14 +2,25 @@ import dotenv from "dotenv";
 import path from 'path';
 import type { InitOptions } from "payload/config";
 import payload, { Payload } from "payload";
+import nodemailer from 'nodemailer';
 dotenv.config({
     path: path.resolve(__dirname, "../.env")
 });
+
+const transporter = nodemailer.createTransport({
+    host: 'smtp.freesmtpservers.com',
+    port: 25
+})
 
 let cached = (global as any).payload;
 
 if (!cached) {
     cached = {
+        email: {
+            transport: transporter, 
+            fromAddress: "mohitsankhlapersonal02@gmail.com",
+            fromName: "mohitsankhla"
+        },
         client: null, 
         promise: null
     };
