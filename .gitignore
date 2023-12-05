@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# payload files -> files that will be supplied to the user
+src/product_files
+
+# media -> Images of Products
+src/media
