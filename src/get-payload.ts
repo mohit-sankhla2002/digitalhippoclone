@@ -8,22 +8,18 @@ dotenv.config({
 });
 
 const transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: "sandbox.smtp.mailtrap.io",
+    port: 2525,
     auth: {
-      user: 'mohittest64@gmail.com',
-      pass: "wboxcxguycayxmgm",
-    },
-  })
+      user: process.env.NODEMAILER_USER,
+      pass: process.env.NODEMAILER_PASS
+    }
+  });
 
 let cached = (global as any).payload;
 
 if (!cached) {
     cached = {
-        email: {
-            transport: transporter, 
-            fromAddress: "mohittest64@gmail.com",
-            fromName: "mohitsankhla"
-        },
         client: null, 
         promise: null
     };
@@ -45,6 +41,11 @@ export const getPayloadClient = async ({ initOptions } : Args = {}): Promise<Pay
 
     if (!cached.promise) {
         cached.promise = payload.init({
+            email: {
+                transport: transporter, 
+                fromAddress: "mohittest64@gmail.com",
+                fromName: "mohitsankhla"
+            },
             secret: process.env.PAYLOAD_SECRET!,
             local: initOptions?.express ? false : true,
             ...(initOptions || {})
