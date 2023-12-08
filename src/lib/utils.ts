@@ -13,7 +13,7 @@ export function formatPrice(
   } = {}
 ) {
   const {
-    currency = "USD",
+    currency = "INR",
     notation = "compact"
   } = options;
 

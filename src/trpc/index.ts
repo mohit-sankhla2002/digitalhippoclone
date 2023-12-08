@@ -51,15 +51,13 @@ export const appRouter = router({
             page,
           })
     
-          console.log("items", items);
-    
           return {
             items,
             nextPage: hasNextPage ? nextPage : null,
           }
       } catch (error) {
         console.log(error);
-        throw new Error("Something Went Wrong")
+        throw new Error("Something Went Wrong");
       }
 
       
