@@ -35,9 +35,9 @@ const Navbar: FC = async () => {
                   {user ? null : <span className="h-6 w-px bg-gray-200" aria-hidden="true" />}
                   {user ? <UserAccountNav user={user}/> : <Link href="/sign-up" className={cn(buttonVariants({ variant: 'ghost' }))}>Create Account</Link>}
                   {user ? <span className="h-6 w-px bg-gray-200" aria-hidden="true" /> : null}
-                  <div className="ml-4 flow-root">
+                  {user ? <div className="ml-4 flow-root">
                     <Cart />
-                  </div>
+                  </div> : null}
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-
+import AddToCartButton from '@/components/AddToCartButton'
 import ImageSlider from '@/components/ImageSlider'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import ProductReel from '@/components/ProductReel'
@@ -123,8 +123,25 @@ const Page = async ({ params }: PageProps) => {
             </div>
           </div>
 
-          {/* add to cart part will come here*/}
-          
+          {/* add to cart part */}
+          <div className='mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start'>
+            <div>
+              <div className='mt-10'>
+                <AddToCartButton product={product} />
+              </div>
+              <div className='mt-6 text-center'>
+                <Link href="/return-policy" className='group inline-flex text-sm text-medium'>
+                  <Shield
+                    aria-hidden='true'
+                    className='mr-2 h-5 w-5 flex-shrink-0 text-gray-400'
+                  />
+                  <span className='text-muted-foreground hover:text-gray-700'>
+                    30 Day Return Guarantee
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
