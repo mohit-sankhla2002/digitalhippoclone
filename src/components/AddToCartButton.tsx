@@ -2,14 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { Product } from "@/payload-types";
+import { Product, User } from "@/payload-types";
 import { useCart } from "@/hooks/use-cart";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 interface CartProps {
-    product: Product
+    product: Product, 
+    user: User | null
 }
 
-const AddToCartButton = ({ product }: CartProps) => {
+const AddToCartButton = ({ product, user }: CartProps) => {
+    const router = useRouter();
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
     const { addItem } = useCart();
@@ -22,6 +26,10 @@ const AddToCartButton = ({ product }: CartProps) => {
 
   return (
     <Button onClick={() => {
+        if (!user) {
+          router.push("/sign-in");
+          return;
+        }
         addItem(product)
         setIsSuccess(true);
 
