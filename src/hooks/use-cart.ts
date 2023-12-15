@@ -3,7 +3,7 @@ import { create } from 'zustand'
 import {
   createJSONStorage,
   persist,
-} from 'zustand/middleware'
+} from 'zustand/middleware';
 
 export type CartItem = {
   product: Product
