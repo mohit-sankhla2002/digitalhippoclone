@@ -151,6 +151,7 @@ const Page = async ({ params }: PageProps) => {
 
       <ProductReel
         href='/products'
+        // @ts-expect-error
         query={{ category: product.category, limit: 4 }}
         title={`Similar ${label}`}
         subtitle={`Browse similar high-quality ${label} just like '${product.name}'`}
