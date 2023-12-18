@@ -15,6 +15,10 @@ export const Users: CollectionConfig = {
         create: () => true
     },
     fields: [
+        // {
+        //     name: "products", 
+            
+        // },
         {
             name: "role", 
             required: true, 
